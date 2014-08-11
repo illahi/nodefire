@@ -7,6 +7,7 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 var Firebase = require("firebase");
+var Worker = require("./routes/worker")
 
 var app = express();
 
@@ -35,4 +36,8 @@ app.get('/', routes.index);
 // Listening
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+
+	// Create workers
+	var worker1 = new Worker("Bob", firebaseData);
+	var worker2 = new Worker("Ben", firebaseData);
 });
