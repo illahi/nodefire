@@ -9,6 +9,7 @@ describe("Worker", function() {
 
 	var fakeWorker = new Worker("Bob", firebaseData);
 
+	// Trivial tests
 	it("should have non-undefined task", function () {
 		expect(fakeWorker.task).not.toBeUndefined();
 	});
@@ -20,5 +21,12 @@ describe("Worker", function() {
 	it("should have non-null busy value", function () {
 		expect(fakeWorker.busy).not.toBeNull();
 	});
+
+	// Async tests
+/*	it("calls the sayHello() function", function() {
+		spyOn(fakeWorker, "seekPermission");
+		waits(10000);
+		expect(fakePerson.seekPermission).toHaveBeenCalled();
+	});*/
 
 });
