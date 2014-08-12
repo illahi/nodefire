@@ -1,6 +1,6 @@
 #Nodefire
 
-This is a simulation of 'workers' processing 'tasks' from a queue. 
+This is a simulation of 'workers' processing 'tasks' from a queue of data that lives in Firebase. A visual interface is provided.
 
 Make sure to "**install dependencies**".
 
