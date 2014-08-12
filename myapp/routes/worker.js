@@ -30,7 +30,7 @@ Worker.prototype.listen = function () {
 Worker.prototype.seekPermission = function () {
 	if (!this.busy && this.task) {
 		console.log(this.name + ' : "I received permission to work on this task : ' + this.task + '."');
-		this.state			= "seek";
+		this.state			= "seeking";
 		this.emit();
 		this.busy 			= true;
 		var self 			= this; 
@@ -68,7 +68,7 @@ Worker.prototype.seekPermission = function () {
 // Process the task
 Worker.prototype.work = function (snapshot) {
 	if (snapshot) {
-		this.state 	= "work";
+		this.state 	= "working";
 		this.emit(snapshot);
 		var self 	= this;
 		setTimeout(function () {

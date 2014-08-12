@@ -1,20 +1,64 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="main">
 	<head>
 		<meta charset="utf-8">
 		<title>Dashboard</title>
 		<link rel='stylesheet' href='/stylesheets/style.css' />
 	</head>
 
-	<body>
+	<body ng-controller="mainController">
+		<div id="legend">
+			<div class="small-box undefined center-fix">
+				<div class="center-text">
+					<span>Unknown : {{ unknown }}</span>
+				</div>
+			</div>
+			<div class="small-box idle center-fix">
+				<div class="center-text">
+					<span>Idle : {{ idle }}</span>
+				</div>
+			</div>
+			<div class="small-box seeking center-fix">
+				<div class="center-text">
+					<span>Seeking : {{ seeking }}</span>
+				</div>
+			</div>
+			<div class="small-box working center-fix">
+				<div class="center-text">
+					<span>Working : {{ working }}</span>
+				</div>
+			</div>
+			<div class="small-box deaf center-fix">
+				<div class="center-text">
+					<span>Deaf : {{ deaf }}</span>
+				</div>
+			</div>
+		</div>
+
+		<div id="workers">
+			<div class="center-fix worker {{ worker.status }}" ng-repeat="worker in workers" 
+			ng-class="{undefined: !worker.status, deaf: !worker.listening}">
+					<div class="center-text">
+						<p>{{ worker.name }}</p>
+						<p>{{ worker.status }}</p>
+						<p>{{ worker.task }}</p>
+					</div>
+			</div>
+		</div>
+
+		<div id="tasks">
+			<div class="center-fix task" ng-repeat="task in tasks">
+					<div class="center-text">
+						<p>{{ task.id }}</p>
+					</div>
+			</div>
+		</div>
+
 		<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
-		<script>
-			var socket = io.connect('http://localhost');
-			socket.on('stateChange', function (data) {
-				console.log(data);
-			});
-		</script>
+		<script src="https://cdn.firebase.com/js/client/1.0.19/firebase.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+		<script src="javascripts/script.js"></script>
 	</body>
 </html>
