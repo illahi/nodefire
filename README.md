@@ -2,13 +2,14 @@
 
 This is a simulation of 'workers' processing 'tasks' from a queue. 
 
-Make sure to *install dependencies*.
-Run the server with *node app.js*. 
-Create tasks with *node create_tasks.js*.
-Open *localhost:3000* to view the worker(s) and task(s) in real time.
+Make sure to **install dependencies**.
+Run the server with **node app.js**. 
+Create tasks with **node create_tasks.js**.
+Open **localhost:3000** to view the worker(s) and task(s) in real time.
 
 Client:
 > AngularJS, Firebase.io, AngularFire, Socket.io
+
 Server:
 > NodeJS, Firebase.io, Socket.io
 
