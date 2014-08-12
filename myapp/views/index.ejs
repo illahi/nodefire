@@ -11,27 +11,27 @@
 		<div id="legend">
 			<div class="small-box undefined center-fix">
 				<div class="center-text">
-					<span>Unknown : {{ unknown }}</span>
+					<span>Unknown</span>
 				</div>
 			</div>
 			<div class="small-box idle center-fix">
 				<div class="center-text">
-					<span>Idle : {{ idle }}</span>
+					<span>Idle : {{ idle }}%</span>
 				</div>
 			</div>
 			<div class="small-box seeking center-fix">
 				<div class="center-text">
-					<span>Seeking : {{ seeking }}</span>
+					<span>Seeking : {{ seeking }}%</span>
 				</div>
 			</div>
 			<div class="small-box working center-fix">
 				<div class="center-text">
-					<span>Working : {{ working }}</span>
+					<span>Working : {{ working }}%</span>
 				</div>
 			</div>
 			<div class="small-box deaf center-fix">
 				<div class="center-text">
-					<span>Deaf : {{ deaf }}</span>
+					<span>Deaf</span>
 				</div>
 			</div>
 		</div>
@@ -41,8 +41,7 @@
 			ng-class="{undefined: !worker.status, deaf: !worker.listening}">
 					<div class="center-text">
 						<p>{{ worker.name }}</p>
-						<p>{{ worker.status }}</p>
-						<p>{{ worker.task }}</p>
+						<p>{{ worker.status }} {{ worker.task }}</p>
 					</div>
 			</div>
 		</div>

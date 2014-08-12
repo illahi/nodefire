@@ -1,12 +1,12 @@
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
+}
 
 p, span, div {
  	border:0px;
  	padding:0px;
  	margin:0px;
- }
+}
 
 body {
   padding: 50px;
