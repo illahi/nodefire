@@ -89,6 +89,7 @@ Worker.prototype.ready = function () {
 	this.seekPermission();
 }
 
+// Emit state information to clients
 Worker.prototype.emit = function (task) {
 	var a = this.name;
 	var b = this.listening;
@@ -96,7 +97,9 @@ Worker.prototype.emit = function (task) {
 	var d = this.busy;
 	var e = task;
 
-	this.io.sockets.emit('stateChange', {name: a, listening: b, state: c, busy: d, task: e});
+	if (this.io) {
+		this.io.sockets.emit('stateChange', {name: a, listening: b, state: c, busy: d, task: e});
+	}
 }
 
 module.exports = Worker;
