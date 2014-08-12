@@ -10,6 +10,9 @@ var Firebase = require("firebase");
 var Worker = require("./routes/worker")
 
 var app = express();
+var server = require('http').Server(app);
+// Using Socket.io
+var io = require('socket.io')(server);
 
 // Environments
 app.set('port', process.env.PORT || 3000);
@@ -33,11 +36,15 @@ var firebaseData = new Firebase("https://nodefire.firebaseio.com/");
 
 app.get('/', routes.index);
 
+io.on('connection', function (socket) {
+	socket.emit('news', { hello: 'world' });
+});
+
 // Listening
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+server.listen(app.get('port'), function(){
+	console.log('Express server listening on port ' + app.get('port'));
 
 	// Create workers
-	var worker1 = new Worker("Bob", firebaseData);
-	var worker2 = new Worker("Ben", firebaseData);
+	var worker1 = new Worker("Bob", firebaseData, io);
+	var worker2 = new Worker("Ben", firebaseData, io);
 });

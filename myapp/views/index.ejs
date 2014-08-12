@@ -1,11 +1,20 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<title>Dashboard</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+
+	<body>
+		<script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+		<script>
+			var socket = io.connect('http://localhost');
+			socket.on('stateChange', function (data) {
+				console.log(data);
+			});
+		</script>
+	</body>
 </html>
